@@ -61,7 +61,7 @@ class Flat(models.Model):
     
     liked_by = models.ManyToManyField(
         User,
-        related_name='likes',
+        related_name='likes', 
     )
 
     def __str__(self):
