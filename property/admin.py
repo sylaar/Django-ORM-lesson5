@@ -5,6 +5,7 @@ from .models import Complaint
 
 
 class FlatAdmin(admin.ModelAdmin):
+    raw_id_fields = ['liked_by']
     list_display = [
         'address', 
         'price', 
