@@ -1,26 +1,45 @@
-# Сайт риэлторского агентства
+# Real Estate Agency
 
-Сайт находится в разработке, поэтому доступна только страница со списком квартир и админка для наполнения БД.
+Django-проект для небольшого агенства недвижимости. Содержит объявления о продаже квартиры, данные собственника и жалобы пользователей. Есть удобный фильтр для поиска нужных кваритр.
 
-## Запуск
+## Зависимости проекта
 
-- Скачайте код
-- Установите зависимости командой `pip install -r requirements.txt`
-- Создайте файл базы данных и сразу примените все миграции командой `python3 manage.py migrate`
-- Запустите сервер командой `python3 manage.py runserver`
+- `Django` — основной фреймворк
+- `django-phonenumber-field` и `phonenumbers` - валидация тел. номеров
+- `python-dotenv` и `environs` - переменные окружения
 
-## Переменные окружения
+## Установка и запуск
 
-Часть настроек проекта берётся из переменных окружения. Чтобы их определить, создайте файл `.env` рядом с `manage.py` и запишите туда данные в таком формате: `ПЕРЕМЕННАЯ=значение`.
+1. **Склонирование репозитория**:
+   ```bash
+   git clone https://github.com/sylaar/Django-ORM-lesson5.git
+   cd real_estate_agency
+   ```
 
-Доступны 3 переменные:
-- `DEBUG` — дебаг-режим. Поставьте True, чтобы увидеть отладочную информацию в случае ошибки.
-- `SECRET_KEY` — секретный ключ проекта
-- `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/5.2/ref/settings/#allowed-hosts).
-- `DATABASE` — однострочный адрес к базе данных, например: `sqlite:///db.sqlite3`. Больше информации в [документации](https://github.com/jacobian/dj-database-url)
+2. **Виртуальное окружение**:
+    ```bash
+    python -m venv .venv
+    source venv/bin/activate  # Для Linux/Mac
+    venv\Scripts\activate  # Для Windows
+    ```
 
-    Это позволяет легко переключаться между базами данных: PostgreSQL, MySQL, SQLite — без разницы, нужно лишь подставить нужный адрес.
+3. **Установика зависимостей**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Цели проекта
-
-Код написан в учебных целях — это урок в курсе по Python и веб-разработке на сайте [Devman](https://dvmn.org).
+4. **Переменные окружения**:
+   Создать файл `.env` в корне проекта
+     ```
+     DEBUG=True
+     SECRET_KEY=your_secret_key
+     ALLOWED_HOSTS=127.0.0.1,localhost
+     ```
+5. **Применение миграций**:
+    ```bash
+    python manage.py migrate
+    ```
+7. **Запуск сервера**:
+    ```bash
+    python manage.py runserver
+    ```
