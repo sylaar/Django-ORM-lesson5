@@ -10,15 +10,13 @@ class FlatAdmin(admin.ModelAdmin):
     list_display = [
         'address', 
         'price', 
-        'owners_phonenumber',
-        'owner_pure_phone',
         'new_building', 
         'construction_year', 
         'town'
         ]
     list_editable = ['new_building']
     list_filter = ['new_building', 'rooms_number']
-    search_fields = ('town', 'address', 'owner',)
+    search_fields = ('town', 'address', 'owners',)
     readonly_fields = ['created_at']
 
 class ComplaintAdmin(admin.ModelAdmin):
