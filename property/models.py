@@ -82,7 +82,7 @@ class Flat(models.Model):
         return f'{self.town}, {self.address} ({self.price}р.)'
     
 class Complaint(models.Model):
-    user = models.ForeignKey(
+    author = models.ForeignKey(
         User,
         verbose_name='кто жаловался',
         null=True,

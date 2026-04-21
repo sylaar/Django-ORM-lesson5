@@ -25,7 +25,7 @@ class FlatAdmin(admin.ModelAdmin):
     inlines = [OwnerInline]
 
 class ComplaintAdmin(admin.ModelAdmin):
-    raw_id_fields = ['user', 'flat']
+    raw_id_fields = ['author', 'flat']
 
 class OwnerAdmin(admin.ModelAdmin):
     raw_id_fields = ['owners_flats']
