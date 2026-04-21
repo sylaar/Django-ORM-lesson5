@@ -85,16 +85,12 @@ class Complaint(models.Model):
     author = models.ForeignKey(
         User,
         verbose_name='кто жаловался',
-        null=True,
-        blank=True,
         on_delete=models.SET_NULL,
         related_name='complaints',
         )
     flat = models.ForeignKey(
         Flat,
         verbose_name='квартира, на которую пожаловались',
-        null=True,
-        blank=True,
         on_delete=models.SET_NULL,
         related_name='complaints',
         )
