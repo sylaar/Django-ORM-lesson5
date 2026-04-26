@@ -13,7 +13,7 @@ def copy_flat_owner_to_owner(apps, schema_editor):
             owners_phonenumber=flat.owners_phonenumber or '',
             owner_pure_phone=flat.owner_pure_phone or '',
         )
-        owner.owners_flats.add(flat.pk)
+        owner.owners_flats.add(flat.pk) 
 
 
 class Migration(migrations.Migration):
