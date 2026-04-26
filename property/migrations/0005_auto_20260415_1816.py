@@ -4,7 +4,7 @@ from django.db import migrations
 
 
 def fill_new_building_field(apps, schema_editor):
-    new_build_construction_year = 2025
+    new_build_construction_year = 2015
     Flat = apps.get_model('property', 'Flat')
     
     Flat.objects.filter(construction_year__gte=new_build_construction_year)\

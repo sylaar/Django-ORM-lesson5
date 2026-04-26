@@ -7,12 +7,16 @@ import phonenumbers
 
 def normalize_phone_phield(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
-    for flat in Flat.objects.all():
+    flats = Flat.objects.all()
+    for flat in flats:
         phone = flat.owners_phonenumber
-        parse_phone = phonenumbers.parse(phone, 'RU')
-        if phonenumbers.is_valid_number(parse_phone):
-            flat.owner_pure_phone = parse_phone
-            flat.save()
+        if phone:
+            parse_phone = phonenumbers.parse(phone, 'RU')
+            if phonenumbers.is_valid_number(parse_phone):
+                flat.owner_pure_phone = parse_phone
+    
+    Flat.objects.bulk_update(flats, ['owner_pure_phone'])
+
 
 class Migration(migrations.Migration):
 
